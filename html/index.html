@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+
+    <title>Groupie-tracker</title>
+    <style>
+        html {
+            height: 100%;
+        }
+        #body {
+            background-color: antiquewhite;
+            width: 100%;
+            height: 90%;
+            display: block;
+            padding-top: 20px;
+            padding-left: 20px;
+            margin: 0 auto;
+            text-align: center;
+            font-family:'Times New Roman', Times, serif;
+        }
+        #form {
+            height: 20%;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+
+        }
+
+        input,
+         select,
+         button {
+             width: 200px;
+             font-size: 13px;
+             padding: 6px 0 4px 10px;
+             border: 1px solid #cecece;
+             background: #F6F6f6;
+             border-radius: 8px;
+         }
+
+         textarea {
+            width: 300px;
+            height: 200px;
+            font-size: 13px;
+            padding: 6px 0 4px 10px;
+            border: 1px solid #cecece;
+            background: #F6F6f6;
+            border-radius: 8px;
+         }
+
+         #result {
+             color:black;
+             width: 90%;
+             display: block;
+             margin: 100px auto;
+             font-size: 90%;
+         }
+
+
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> 
+</head>
+<body>
+    <br>
+    <br>
+    
+        <p><input class="button" name="text" placeholder="Enter search">
+        <p><input class="button" type="submit" value="Find!"></p>
+      
+ 
+    {{ range $check := . }}
+
+    <table>
+        <thead>
+        <th> Poster </th>
+        <th> Description </th>
+        </thead>
+        <tbody>            
+                <td>
+                    <img src="{{ $check.Image }}" width="300" height="300">
+                </td>
+            <td style="font-size: 25px; font-family: fantasy;">
+            Name: {{$check.Name}}<br>
+            Members: {{$check.Members}}<br>
+            First Album: {{$check.FirstAlbum}}<br>
+                Creation :{{$check.CreationDate}}<br>
+            </td>
+            {{end}}
+        </tbody>
+    </table>
+    
+</body>   
+</html>
